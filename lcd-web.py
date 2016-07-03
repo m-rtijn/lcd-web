@@ -81,19 +81,25 @@ else:
 # Get local IP address. Thanks to someone on stackoverflow
 host = [l for l in ([ip for ip in socket.gethostbyname_ex(socket.gethostname())[2] if not ip.startswith("127.")][:1], [[(s.connect(('8.8.8.8', 53)), s.getsockname()[0], s.close()) for s in [socket.socket(socket.AF_INET, socket.SOCK_DGRAM)]][0][1]]) if l][0][0]
 sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-print host
-print port
+
+if args.verbose:
+    print host
+    print port
+
 sock.bind((host, port))
 sock.listen(5)
 
 while True:
     connection, connection_address = sock.accept()
-    print("got connection w/ " + str(connection_address))
+    if args.verbose:
+        print("got connection w/ " + str(connection_address))
     try:
         recv_msg = connection.recv(buffer_size)
-        lcd.lcd_print(recv_msg)
-        print recv_msg
+        lcd.lcd_print(recv_msg[:-2]) # Remove newline character
+        if args.verbose:
+            print(recv_msg)
     except:
         pass
     connection.close()
-    print("Connection with " + str(connection_address) + " closed.")
+    if args.verbose:
+        print("Connection with " + str(connection_address) + " closed.")
