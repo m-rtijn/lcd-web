@@ -64,8 +64,8 @@ def init():
     lcd = LCD_i2c(ADDRESS, WIDTH, MAX_LINES, BACKLIGHT)
 
 parser = argparse.ArgumentParser(description="Display a line of text from a web socket on a LCD screen")
-parser.add_argument("-p", "--port", metavar="n", type=int, help="port of the web socket. (default 10001)")
-parser.add_argument("-b", "--buffer-size", metavar="n", type=int, help="size of the buffer. (default 1024)")
+parser.add_argument("-p", "--port", metavar="n", type=int, help="specify which port lcd-web should listen at. (default 10001)")
+parser.add_argument("-b", "--buffer-size", metavar="n", type=int, help="specify the buffer size (default 1024)")
 parser.add_argument("-v", "--verbose", help="change verbosity of the program")
 args = parser.parse_args()
 if args.port is not None:
