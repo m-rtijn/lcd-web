@@ -95,7 +95,7 @@ while True:
         print("got connection w/ " + str(connection_address))
     try:
         recv_msg = connection.recv(buffer_size)
-        lcd.lcd_print(recv_msg.strip("\n")) # Remove newline character
+        lcd.lcd_print(recv_msg.strip("\n"), CLEAR_TIME) # Remove newline character
         if args.verbose:
             print(recv_msg)
     except:
