@@ -19,7 +19,7 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 """
 
-from lcd-i2c import lcd-i2c
+from lcd_i2c import lcd_i2c
 import socket
 import argparse
 from time import sleep
