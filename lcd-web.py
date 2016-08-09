@@ -19,7 +19,7 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 """
 
-from LCD_i2c import LCD_i2c
+from lcd-i2c import lcd-i2c
 import socket
 import argparse
 from time import sleep
@@ -61,7 +61,7 @@ def read_config():
 
 def init():
     global lcd
-    lcd = LCD_i2c(ADDRESS, WIDTH, MAX_LINES, BACKLIGHT)
+    lcd = lcd-i2c(ADDRESS, WIDTH, MAX_LINES, BACKLIGHT)
 
 parser = argparse.ArgumentParser(description="Display a line of text from a web socket on a LCD screen")
 parser.add_argument("-p", "--port", metavar="n", type=int, help="specify which port lcd-web should listen at. (default 10001)")
