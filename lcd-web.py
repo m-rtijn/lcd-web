@@ -61,7 +61,7 @@ def read_config():
 
 def init():
     global lcd
-    lcd = lcd-i2c(ADDRESS, WIDTH, MAX_LINES, BACKLIGHT)
+    lcd = lcd_i2c(ADDRESS, WIDTH, MAX_LINES, BACKLIGHT)
 
 parser = argparse.ArgumentParser(description="Display a line of text from a web socket on a LCD screen")
 parser.add_argument("-p", "--port", metavar="n", type=int, help="specify which port lcd-web should listen at. (default 10001)")
